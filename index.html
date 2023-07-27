@@ -321,19 +321,13 @@ async function calculateDividends() {
     const totalDividendsWei = await contract.methods.totalDividends().call();
     console.log(`Total dividends in wei: ${totalDividendsWei}`);
 
-    const totalDividendsEth = web3.utils.fromWei(totalDividendsWei, 'ether');
-    console.log(`Total dividends in ETH: ${totalDividendsEth}`);
-
-    const totalDividendsInt = Math.floor(parseFloat(totalDividendsEth));
+    const totalDividendsInt = Math.floor(parseFloat(totalDividendsWei)/100000000);
     console.log(`Total dividends as integer: ${totalDividendsInt}`);
 
     const BITCOINPriceInUSD = await fetchBITCOINPrice(); // fetch the current BITCOIN price in USD
-  
-    const totalDividendsValueInETH = totalDividendsEth;
-    console.log(`Total dividends value in ETH: ${totalDividendsValueInETH}`);
 
 
-    const totalDividendsValueInUSD = (totalDividendsValueInETH * BITCOINPriceInUSD).toFixed(2);
+    const totalDividendsValueInUSD = (totalDividendsInt * BITCOINPriceInUSD).toFixed(2);
     console.log(`Total dividends value in USD: ${totalDividendsValueInUSD}`);
 
     totalDividendsElement.textContent = `Total Printed: ${totalDividendsInt} BITCOIN \u2248 $${totalDividendsValueInUSD}`;
