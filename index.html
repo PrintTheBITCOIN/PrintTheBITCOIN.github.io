@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="icon" type="image/x-icon" href="logo.png">
+    <link rel="icon" type="image/x-icon" href="Logo.png">
 	<link rel="stylesheet" href="print.css">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="ion.rangeSlider.min.css">
@@ -140,7 +140,7 @@ button.connect-button:hover {
 
 }
 
-  #ptfprice {
+  #PTBITCOINprice {
     margin-right: auto;
   }
  
@@ -173,7 +173,7 @@ button.connect-button:hover {
 
 </style>
 
-<link rel="icon" type="image/x-icon" href="logo.png">
+<link rel="icon" type="image/x-icon" href="Logo.png">
   <title>THE BITCOIN PRINTER</title>
 </head>
 <body>
@@ -194,7 +194,7 @@ button.connect-button:hover {
 <div style="position: absolute; top: 10px; right: 10px;">
   <button onclick="connectWallet()" style="margin-right: 15px; margin-top: 5px;">Connect Wallet</button>
 </div>
-  <img src="logo.png" alt="BITCOIN logo" style="width: 200px; height: 200px; margin-top: 20px;">
+  <img src="Logo.png" alt="BITCOIN logo" style="width: 200px; height: 200px; margin-top: 20px;">
   <h1 class="bank-font">Print The BITCOIN</h1>
 <div id="dividendContainer">
   <div id="totalDividendsBox"></div>
@@ -203,12 +203,12 @@ button.connect-button:hover {
 
 
 <div class="statscontainer">
-  <div id="ptfprice" class="bank-font">
-    PTF Price
-    <span>PTF</span>
+  <div id="PTBITCOINprice" class="bank-font">
+    PTBITCOIN Price
+    <span>PTBITCOIN</span>
   </div>
-  <div id="ptfmarketcap" class="bank-font">
-    PTF Market Cap
+  <div id="PTBITCOINmarketcap" class="bank-font">
+    PTBITCOIN Market Cap
     <span>To</span>
   </div>
   <div id="BITCOINprice" class="bank-font">
@@ -221,7 +221,7 @@ button.connect-button:hover {
   </div>
 </div>
 
-<p class="bank-font">To earn BITCOIN, you need to be a holder of PTF. As a shareholder, you are entitled to claim dividends earned in BITCOIN tokens. Make sure to verify that the contract address you are interacting with is the PTF token address 0xC76Eb853ac39D02Fa5f90A6552d2ceA6e6B8193C.</p>
+<p class="bank-font">To earn BITCOIN, you need to be a holder of PTBITCOIN. As a shareholder, you are entitled to claim dividends earned in BITCOIN tokens. Make sure to verify that the contract address you are interacting with is the PTBITCOIN token address 0xC76Eb853ac39D02Fa5f90A6552d2ceA6e6B8193C.</p>
   <div id="unclaimedDividends"></div>
   <div id="claimedDividends"></div>
     <div id="totalDividends"></div>
@@ -427,7 +427,7 @@ async function showTotalDividendsPerUser() {
       const totalDividends = Math.floor(parseFloat(claimedDividendsInEth)) + Math.floor(parseFloat(unclaimedDividendsInEth));
       const totalDividendsValueInUSD = (totalDividends * BITCOINPriceInUSD).toFixed(2); // calculate the dollar value
 
-      document.getElementById("totalDividendsPerUserBox").innerHTML = `Your PTF Printed: ${totalDividends} BITCOIN \u2248 $${totalDividendsValueInUSD}`;
+      document.getElementById("totalDividendsPerUserBox").innerHTML = `Your PTBITCOIN Printed: ${totalDividends} BITCOIN \u2248 $${totalDividendsValueInUSD}`;
     } catch (err) {
       console.error(err);
      
