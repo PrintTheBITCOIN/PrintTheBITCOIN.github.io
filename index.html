@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" type="image/x-icon" href="img/logo.png">
+	<link rel="stylesheet" href="css/print.css">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/ion.rangeSlider.min.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="app.js"></script>
+    <style>
+  body {
+    font-size: 18px; /* set the font size to 18 pixels */
+    line-height: 1.5; /* set the line height to 1.5 times the font size */
+    font-family: sans-serif; /* set the font family to a sans-serif font */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0 auto; /* center the element horizontally */
+    max-width: 800px; /* set your preferred maximum width */
+    text-align: center;
+    background-color: #000000;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    animation: wave 20s infinite linear;
+  }
+
+  @keyframes wave {
+    0% {
+      background-position-x: 0;
+    }
+    100% {
+      background-position-x: 2000px;
+    }
+  }
+  
+  h1 {
+    font-size: 2.5rem; /* set the font size to 2.5 times the root font size */
+    margin-top: .3rem; /* add a margin on top of the heading */
+    margin-bottom: .5rem; /* add a margin on bottom of the heading */
+  }
+  
+  p {
+    margin-bottom: 0rem; /* add a margin on bottom of paragraphs */
+  }
+  
+  #unclaimedDividends {
+    margin-top: 13px;
+    font-size: 1.2rem; /* set the font size to 1.2 times the root font size */
+    font-weight: bold; /* set the font weight to bold */
+    color: rgb(255, 255, 255); /* set the text color to white */
+  }
+  
+  button {
+    margin-top: 1.5rem; /* add a margin on top of the button */
+    padding: 0.8rem 1.6rem; /* add some padding around the button */
+    font-size: 1.2rem; /* set the font size to 1.2 times the root font size */
+    font-weight: bold; /* set the font weight to bold */
+    background-color: #fff;
+    color: #588dc2;
+    border: 2px solid #000000;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    margin-bottom: 20px;
+  }
+  
+  button:hover {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  
+  img {
+    display: block;
+    margin: 0 auto; /* center the image horizontally */
+  }
+  button.connect-button {
+  margin-right: 10px;
+  padding: 0.8rem 1.6rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background-color: #ffffff;
+  color: #000000;
+  border: 2px solid #000000;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+button.connect-button:hover {
+  background-color: #4368c5;
+  color: #fff;
+}
+
+.header__buttons {
+  display: flex;
+  justify-content: center;
+}
+.statscontainer {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .statscontainer div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 500;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 3px;
+  }
+  
+  
+  .statscontainer div span {
+    margin-top: 1px;
+  }
+.header__img {
+    position: absolute; /* Set the position of the element to absolute */
+    left: 0; /* Set the distance of the element from the left edge of its parent container to 0 */
+    padding-top: 30px; /* Add 10px of padding to the top of the element */
+    padding-left: 25px; /* Add 20px of padding to the left of the element */
+}
+
+.header__img a {
+    display: block; /* Set display to block to make the link take up the full width of the element */
+}
+
+.header__img img {
+    width: 75px; /* Set the width of the image to 100px */
+    height: auto; /* Set the height of the image to auto to maintain the aspect ratio */
+}
+
+.bank-font {
+  font-family: "Hack", monospace;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
+
+}
+
+  #ptfprice {
+    margin-right: auto;
+  }
+ 
+ #dividendContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 5px;
+  padding: 2px;
+  background-color: rgb(255, 255, 255);
+  border: 0px solid #ffffff;
+  border-radius: 1px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+}
+
+#totalDividendsBox, #totalDividendsPerUserBox {
+  padding: 1px;
+  font-size: .9rem;
+  font-weight: 800;
+  color: #000000;
+  margin-bottom: -1px;
+  text-align: center;
+}
+
+
+
+
+
+</style>
+
+<link rel="icon" type="image/x-icon" href="img/logo.png">
+  <title>THE BITCOIN PRINTER</title>
+</head>
+<body>
+   <header>
+  <div class="container">
+    <div class="outer__header">
+      <div class="header__img">
+   
+      </div>
+      <div class="header__buttons">
+    <a href="https://twitter.com/PrintTheBITCOIN" class="shake-constant">HOME</a>
+    <a href="https://app.uniswap.org/#/swap?outputCurrency=0xC76Eb853ac39D02Fa5f90A6552d2ceA6e6B8193C" class="shake-constant" target="_blank">BUY NOW</a>
+    <a href="https://www.dextools.io/app/ru/ether/pair-explorer/0xa660973303d2da6107d91af5e91a8fd16bc33c39" class="shake-constant" target="_blank">CHART</a>
+</div>
+    </div>
+  </div>
+</header>
+<div style="position: absolute; top: 10px; right: 10px;">
+  <button onclick="connectWallet()" style="margin-right: 15px; margin-top: 5px;">Connect Wallet</button>
+</div>
+  <img src="img/logo.png" alt="BITCOIN logo" style="width: 200px; height: 200px; margin-top: 20px;">
+  <h1 class="bank-font">Print The BITCOIN</h1>
+<div id="dividendContainer">
+  <div id="totalDividendsBox"></div>
+  <div id="totalDividendsPerUserBox"></div>
+</div>
+
+
+<div class="statscontainer">
+  <div id="ptfprice" class="bank-font">
+    PTF Price
+    <span>PTF</span>
+  </div>
+  <div id="ptfmarketcap" class="bank-font">
+    PTF Market Cap
+    <span>To</span>
+  </div>
+  <div id="BITCOINprice" class="bank-font">
+    BITCOIN Price
+    <span>The</span>
+  </div>
+  <div id="BITCOINmarketcap" class="bank-font">
+    BITCOIN Market Cap
+    <span>Moon</span>
+  </div>
+</div>
+
+<p class="bank-font">To earn BITCOIN, you need to be a holder of PTF. As a shareholder, you are entitled to claim dividends earned in BITCOIN tokens. Make sure to verify that the contract address you are interacting with is the PTF token address 0xC76Eb853ac39D02Fa5f90A6552d2ceA6e6B8193C.</p>
+  <div id="unclaimedDividends"></div>
+  <div id="claimedDividends"></div>
+    <div id="totalDividends"></div>
+<button onclick="claimDividend()" style="margin-top: 10px; padding: 10px 20px; font-size: 16px; font-weight: bold; background-color: #000000; color: #2b95a6; border: 2px solid #2b95a6; border-radius: 5px; cursor: pointer;">Claim BITCOIN</button>
+
+  <script src="https://cdn.jsdelivr.net/npm/web3@1.3.5/dist/web3.min.js"></script>
+  <script>
+    const contractAddress = '0xC76Eb853ac39D02Fa5f90A6552d2ceA6e6B8193C';
+    const abi = [{"inputs":[],"name":"claimDividend","outputs":[],"stateMutability":"external","type":"function"},{"inputs":[{"internalType":"address","name":"_account","type":"address"}],"name":"dividendOwing","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"distributor","outputs":[{"internalType":"contract IDividendDistributor","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"shareholder","type":"address"}],"name":"getClaimableDividendOf","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"}];
+
+    async function claimDividend() {
+      if (window.ethereum) {
+        try {
+          // Request permission to access the user's MetaMask account
+          await window.ethereum.request({ method: 'eth_requestAccounts' });
+
+          const address = await window.ethereum.request({ method: 'eth_accounts' });
+          const web3 = new Web3(window.ethereum);
+          const contractInstance = new web3.eth.Contract(abi, contractAddress);
+
+          // Call the claimDividend function with the user's address
+          const result = await contractInstance.methods.claimDividend().send({ from: address[0] });
+
+          alert('Transaction sent! Transaction hash: ' + result.transactionHash);
+        } catch (err) {
+          alert('Error: ' + err.message);
+        }
+      } else {
+        alert('Please install MetaMask to use this feature.');
+      }
+    }
+
+ async function showUnclaimedDividends() {
+  if (window.ethereum) {
+    try {
+      await window.ethereum.request({ method: 'eth_requestAccounts' });
+
+      const address = await window.ethereum.request({ method: 'eth_accounts' });
+      const web3 = new Web3(window.ethereum);
+      const contractInstance = new web3.eth.Contract(abi, contractAddress);
+
+      const unclaimedDividendsInWei = await contractInstance.methods.getClaimableDividendOf(address[0]).call();
+      const unclaimedDividendsInEth = web3.utils.fromWei(unclaimedDividendsInWei.toString(), 'ether');
+      const BITCOINPriceInUSD = await fetchBITCOINPrice(); // fetch the current PEPE price in USD
+
+      const unclaimedDividends = Math.floor(parseFloat(unclaimedDividendsInEth));
+      const unclaimedDividendsValueInUSD = (unclaimedDividends * BITCOINPriceInUSD).toFixed(2); // calculate the dollar value
+
+      document.getElementById("unclaimedDividends").innerHTML = `You have ${unclaimedDividends} Unclaimed BITCOIN \u2248 $${unclaimedDividendsValueInUSD}.`;
+    } catch (err) {
+      console.error(err);
+    }
+  } else {
+    alert('Please install MetaMask to use this feature.');
+  }
+}
+
+
+async function fetchBITCOINPrice() {
+  try {
+    const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=harrypotterobamasonic10in&vs_currencies=usd');
+    const data = await response.json();
+    return data['harrypotterobamasonic10in'].usd;
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+
+
+showUnclaimedDividends();
+
+async function connectWallet() {
+  if (window.ethereum) {
+    try {
+      // Request permission to access the user's MetaMask account
+      await window.ethereum.request({ method: 'eth_requestAccounts' });
+    } catch (err) {
+      alert('Error: ' + err.message);
+    }
+  } else {
+    alert('Please install MetaMask to use this feature.');
+  }
+}
+  </script>
+  
+  <script>
+    const web3 = new Web3('https://mainnet.infura.io/v3/b1c72d8532414261a1ca28277a8ba8a0');
+
+const disabi = [
+  {
+    "inputs": [],
+    "name": "totalDividends",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+];
+
+const discontractAddress = '0x15E9B7E1e2Ba7b821191c24e76238230C0B9A88B'; 
+//DividendDistributor
+
+const contract = new web3.eth.Contract(disabi, discontractAddress);
+
+const totalDividendsElement = document.getElementById('totalDividendsBox');
+
+async function calculateDividends() {
+  try {
+    const totalDividendsWei = await contract.methods.totalDividends().call();
+    console.log(`Total dividends in wei: ${totalDividendsWei}`);
+
+    const totalDividendsEth = web3.utils.fromWei(totalDividendsWei, 'ether');
+    console.log(`Total dividends in ETH: ${totalDividendsEth}`);
+
+    const totalDividendsInt = Math.floor(parseFloat(totalDividendsEth));
+    console.log(`Total dividends as integer: ${totalDividendsInt}`);
+
+    const BITCOINPriceInUSD = await fetchBITCOINPrice(); // fetch the current BITCOIN price in USD
+  
+    const totalDividendsValueInETH = totalDividendsEth;
+    console.log(`Total dividends value in ETH: ${totalDividendsValueInETH}`);
+
+
+    const totalDividendsValueInUSD = (totalDividendsValueInETH * BITCOINPriceInUSD).toFixed(2);
+    console.log(`Total dividends value in USD: ${totalDividendsValueInUSD}`);
+
+    totalDividendsElement.textContent = `Total Printed: ${totalDividendsInt} BITCOIN \u2248 $${totalDividendsValueInUSD}`;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+calculateDividends();
+
+const distribcontractAddress = '0x15E9B7E1e2Ba7b821191c24e76238230C0B9A88B';
+//DividendDistributor
+const distribabi = [
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "shareholder",
+        "type": "address"
+      }
+    ],
+    "name": "getDividendsClaimedOf",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+];
+
+async function showTotalDividendsPerUser() {
+  if (window.ethereum) {
+    try {
+      await window.ethereum.request({ method: 'eth_requestAccounts' });
+
+      const address = await window.ethereum.request({ method: 'eth_accounts' });
+      const web3 = new Web3(window.ethereum);
+      const distribContractInstance = new web3.eth.Contract(distribabi, distribcontractAddress);
+      const contractInstance = new web3.eth.Contract(abi, contractAddress);
+
+      let claimedDividendsInWei, unclaimedDividendsInWei;
+      let claimedDividendsInEth, unclaimedDividendsInEth;
+
+      try {
+        claimedDividendsInWei = await distribContractInstance.methods.getDividendsClaimedOf(address[0]).call();
+      } catch (err) {
+        console.error(err);
+        if (err.message.includes("You're not a PRINTER shareholder")) {
+          document.getElementById("totalDividendsPerUserBox").innerHTML = "NO SHARES FOUND CHECK YOUR WALLET CONNECTION";
+          return;
+        }
+      }
+
+      try {
+        unclaimedDividendsInWei = await contractInstance.methods.getClaimableDividendOf(address[0]).call();
+      } catch (err) {
+        console.error(err);
+        if (err.message.includes("You're not a PRINTER shareholder")) {
+          document.getElementById("totalDividendsPerUserBox").innerHTML = "You're not a PRINTER shareholder";
+          return;
+        }
+      }
+
+      claimedDividendsInEth = web3.utils.fromWei(claimedDividendsInWei.toString(), 'ether');
+      unclaimedDividendsInEth = web3.utils.fromWei(unclaimedDividendsInWei.toString(), 'ether');
+
+      const BITCOINPriceInUSD = await fetchBITCOINPrice(); // fetch the current PEPE price in USD
+
+      const totalDividends = Math.floor(parseFloat(claimedDividendsInEth)) + Math.floor(parseFloat(unclaimedDividendsInEth));
+      const totalDividendsValueInUSD = (totalDividends * BITCOINPriceInUSD).toFixed(2); // calculate the dollar value
+
+      document.getElementById("totalDividendsPerUserBox").innerHTML = `Your PTF Printed: ${totalDividends} BITCOIN \u2248 $${totalDividendsValueInUSD}`;
+    } catch (err) {
+      console.error(err);
+     
+    }
+  } else {
+    
+  }
+}
+
+showTotalDividendsPerUser();
+
+
+
+
+
+
+    </script>
+ 
+  <div class="main__section">
+		<div class="socials">
+		<ul>
+				<li><a href="https://twitter.com/PrintTheBITCOIN">TWITTER <span><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M0.62396 18.2951C0.135804 18.7832 0.135804 19.5747 0.62396 20.0628C1.11211 20.551 1.90357 20.551 2.39173 20.0628L0.62396 18.2951ZM19.7934 2.14341C19.7934 1.45306 19.2337 0.893412 18.5434 0.89341L7.29339 0.893411C6.60303 0.893411 6.04339 1.45306 6.04339 2.14341C6.04339 2.83377 6.60303 3.39341 7.29339 3.39341H17.2934V13.3934C17.2934 14.0838 17.853 14.6434 18.5434 14.6434C19.2337 14.6434 19.7934 14.0838 19.7934 13.3934L19.7934 2.14341ZM2.39173 20.0628L19.4273 3.02729L17.6595 1.25953L0.62396 18.2951L2.39173 20.0628Z" fill="black"/>
+				</svg>
+				</span></a></li>
+				<li><a href="https://t.me/PrintTheBITCOIN">TELEGRAM <span><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M0.62396 18.2951C0.135804 18.7832 0.135804 19.5747 0.62396 20.0628C1.11211 20.551 1.90357 20.551 2.39173 20.0628L0.62396 18.2951ZM19.7934 2.14341C19.7934 1.45306 19.2337 0.893412 18.5434 0.89341L7.29339 0.893411C6.60303 0.893411 6.04339 1.45306 6.04339 2.14341C6.04339 2.83377 6.60303 3.39341 7.29339 3.39341H17.2934V13.3934C17.2934 14.0838 17.853 14.6434 18.5434 14.6434C19.2337 14.6434 19.7934 14.0838 19.7934 13.3934L19.7934 2.14341ZM2.39173 20.0628L19.4273 3.02729L17.6595 1.25953L0.62396 18.2951L2.39173 20.0628Z" fill="black"/>
+				</svg>
+				</span></a></li>
+				<li><a href="#">TWEET ABOUT US <span><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M0.62396 18.2951C0.135804 18.7832 0.135804 19.5747 0.62396 20.0628C1.11211 20.551 1.90357 20.551 2.39173 20.0628L0.62396 18.2951ZM19.7934 2.14341C19.7934 1.45306 19.2337 0.893412 18.5434 0.89341L7.29339 0.893411C6.60303 0.893411 6.04339 1.45306 6.04339 2.14341C6.04339 2.83377 6.60303 3.39341 7.29339 3.39341H17.2934V13.3934C17.2934 14.0838 17.853 14.6434 18.5434 14.6434C19.2337 14.6434 19.7934 14.0838 19.7934 13.3934L19.7934 2.14341ZM2.39173 20.0628L19.4273 3.02729L17.6595 1.25953L0.62396 18.2951L2.39173 20.0628Z" fill="black"/>
+				</svg>
+					<li><a href="">PRINTER PAPER<span><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M0.62396 18.2951C0.135804 18.7832 0.135804 19.5747 0.62396 20.0628C1.11211 20.551 1.90357 20.551 2.39173 20.0628L0.62396 18.2951ZM19.7934 2.14341C19.7934 1.45306 19.2337 0.893412 18.5434 0.89341L7.29339 0.893411C6.60303 0.893411 6.04339 1.45306 6.04339 2.14341C6.04339 2.83377 6.60303 3.39341 7.29339 3.39341H17.2934V13.3934C17.2934 14.0838 17.853 14.6434 18.5434 14.6434C19.2337 14.6434 19.7934 14.0838 19.7934 13.3934L19.7934 2.14341ZM2.39173 20.0628L19.4273 3.02729L17.6595 1.25953L0.62396 18.2951L2.39173 20.0628Z" fill="black"/>
+				</svg>
+				</span></a></li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>
